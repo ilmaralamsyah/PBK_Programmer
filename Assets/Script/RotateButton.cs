@@ -10,14 +10,10 @@ public class RotateButton : MonoBehaviour
     [SerializeField] private HoldButton rotateLeftButton;
 
     [SerializeField] private Border border;
-
     [SerializeField] private float rotationSpeed;
 
     private bool OnHoldRightButton = false;
     private bool OnHoldLeftButton = false;
-
-
-    private Vector3 rotationValue = new Vector3 (0, 0, 1f);
 
     private void Start()
     {
@@ -50,23 +46,13 @@ public class RotateButton : MonoBehaviour
 
     private void Update()
     {
-        HandleRightRotation();
-        HandleLeftRotation();
-    }
-
-    private void HandleRightRotation()
-    {
         if (OnHoldRightButton)
         {
-            border.transform.Rotate(-rotationValue * Time.deltaTime * rotationSpeed);
+            border.transform.Rotate(-Vector3.forward * Time.deltaTime * rotationSpeed);
         }
-    }
-
-    private void HandleLeftRotation()
-    {
         if (OnHoldLeftButton)
         {
-            border.transform.Rotate(rotationValue * Time.deltaTime * rotationSpeed);
+            border.transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
         }
     }
 }
