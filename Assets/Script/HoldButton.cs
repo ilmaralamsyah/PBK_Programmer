@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 
 public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
-    //private bool onHoldButton;
-
     public event Action OnHoldButtonDown;
     public event Action OnHoldButtonUp;
 
@@ -23,9 +20,4 @@ public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         OnHoldButtonUp?.Invoke();
         Debug.Log("NotHold");
     }
-
-    /*public bool OnHoldButton()
-    {
-        return onHoldButton;
-    }*/
 }

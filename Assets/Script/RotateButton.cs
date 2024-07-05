@@ -58,7 +58,7 @@ public class RotateButton : MonoBehaviour
     {
         if (OnHoldRightButton)
         {
-            border.transform.Rotate(rotationValue * Time.deltaTime * rotationSpeed);
+            border.transform.Rotate(-rotationValue * Time.deltaTime * rotationSpeed);
         }
     }
 
@@ -66,7 +66,7 @@ public class RotateButton : MonoBehaviour
     {
         if (OnHoldLeftButton)
         {
-            border.transform.Rotate(-rotationValue * Time.deltaTime * rotationSpeed);
+            border.transform.Rotate(rotationValue * Time.deltaTime * rotationSpeed);
         }
     }
 }

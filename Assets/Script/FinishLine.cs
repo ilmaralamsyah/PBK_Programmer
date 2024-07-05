@@ -5,21 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    [SerializeField] private GameObject[] totalPlayer;
 
-    Scene scene;
+    private Scene scene;
+    public int finishedPlayer;
 
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
+        totalPlayer = GameObject.FindGameObjectsWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.CompareTag("Player"))
         {
-            int nextSceneIndex = scene.buildIndex + 1;
-            SceneManager.LoadScene(nextSceneIndex);
+            finishedPlayer++;
+            if(finishedPlayer >= totalPlayer.Length)
+            {
+                int nextSceneIndex = scene.buildIndex + 1;
+                SceneManager.LoadScene(nextSceneIndex);
+            }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        finishedPlayer--;
     }
 }

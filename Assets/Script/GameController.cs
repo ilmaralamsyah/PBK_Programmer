@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject prefab1;
+    [SerializeField] private GameObject prefab1;
 
-    float counter;
+    private float counter;
   
     private void Update()
     {
